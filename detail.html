@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+        
+        <title>人数统计</title>
+
+        <script src="./js/jquery.js"></script>
+        <script src="./js/detail.js"></script>
+        <!--<link rel="stylesheet" href="./css/bootstrap.min.css" >-->
+        <!--<link rel="stylesheet" href="./css/index.css">-->
+        <script src="./js/submit.js"></script>
+        <link rel="stylesheet" href="./css/index.css">
+        <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet">
+        
+        
+    </head>
+    <body class="container">
+
+        <div id = "div1">
+            <div>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link" href="http://localhost/tasks/index.html">任务列表</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" id="a1"></a>
+                    </li>
+                </ul>  
+            </div>
+
+            <div id = "div3" class="" role="alert" style="display: none;"></div>
+
+            <div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">姓名</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id ="input1">
+                </div>
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">学号</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="ID" aria-label="Username" aria-describedby="basic-addon1" id="input2">
+                </div>
+            </div>
+            
+            <div>
+                <input type="checkbox" name="isfine" id="1">
+                <label for="1">我确认我已经完成<span id="span1"></span>信息上报</label>
+            </div>
+
+            <div>
+                <button type="button" class="btn btn-primary" id="btn1">完成</button>
+            </div>
+
+            
+
+            <div class="card" style="width: 41.5rem;">
+                <div class="card-body">
+                  <h5 class="card-title">未完成名单</h5>
+                  <p class="card-text" id="p1" ></p>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>
