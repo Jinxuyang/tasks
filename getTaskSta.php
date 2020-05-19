@@ -1,19 +1,28 @@
 <?php
-    $host = "localhost";
+    header('Access-Control-Allow-Origin:*');
+    //这一部分是用mysqli这个对象链接数据库
+    $host = "localhost";//数据库的地址
     $username = "root";
-    $dbname = "tasks_test";
+    $dbname = "tasks";//要连接的数据库名
     $passwd = "";
-    $port = 3308;
-    $mysqli = new mysqli($host,$username,$passwd,$dbname,$port);
-    //获取任务id
+    $port = 3306;
+    $mysqli = new mysqli($host,$username,$passwd,$dbname,$port);//new 一个mysqli对象
+    
+    //判断链接是否成功
+    if ($mysqli->connect_errno) {
+        echo "Connect failed:", $mysqli->connect_error;
+        exit();
+    }
+    
+    //使用$_GET获取客户端传上来的taskId
     $taskId = $_GET["taskId"];
+    
     // 获取任务id为$taskId的状态字符串
-    $gettaskinfo = "SELECT users_sta FROM tasks_sta WHERE tasks_id = $taskId";
+    $gettaskinfo = "SELECT tasks_sta FROM tasks_info WHERE tasks_id = $taskId";
     $info = $mysqli->query($gettaskinfo);
     if($info){
         $row = $info->fetch_row();
         $staCode = $row[0];
-        //echo $staCode[0];
     }else{
         echo "查询失败";
     }
@@ -21,11 +30,11 @@
 
     for ($i=1; $i < 30  ; $i++) { 
         if($staCode[$i] == 0){
-            $getUserInfo = "SELECT user_name FROM users_info WHERE user_id = $i";
+            $getUserInfo = "SELECT users_name FROM dx198 WHERE users_id = $i";
             $info = $mysqli->query($getUserInfo);
             $data = $info->fetch_assoc();
             if($data){
-                $name[]=$data["user_name"];
+                $name[]=$data["users_name"];
             }
         }
     }

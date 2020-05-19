@@ -7,36 +7,38 @@
 
     $host = "localhost";
     $username = "root";
-    $dbname = "tasks_test";
+    $dbname = "tasks";
     $passwd = "";
-    $port = 3308;
+    $port = 3306;
     $mysqli = new mysqli($host,$username,$passwd,$dbname,$port);
     
     if ($mysqli->connect_errno) {
-        printf("Connect failed: %s\n", $mysqli->connect_error);
+        printf("Connect failed:", $mysqli->connect_error);
         exit();
     }
-
-    $checkinfo = "SELECT * FROM users_info WHERE user_id = $id";
+    
+    $checkinfo = "SELECT users_name FROM dx198 WHERE users_id = $id";
 
     $userinfo = $mysqli->query($checkinfo);
     if(empty($userinfo)){
         echo "未匹配到此人($name)，请重新输入";
     }else{
         $info = $userinfo->fetch_array(MYSQLI_ASSOC);
-        if($info['user_name'] != $name){
+        if($info['users_name'] != $name){
             echo "学号($id)与姓名($name)不匹配";
         }else{
-            $gettaskinfo = "SELECT users_sta FROM tasks_sta WHERE tasks_id = $taskId";
+            $gettaskinfo = "SELECT tasks_sta,tasks_undone FROM tasks_info WHERE tasks_id = $taskId";
                 $info = $mysqli->query($gettaskinfo);
                 $row = $info->fetch_row();
                 $staCode = $row[0];
             if($staCode[$id] == 1){
                 echo "您($name)今日已签到";
             }else{
-                $changedCode = $staCode;
-                $changedCode[$id] = 1;
-                $updateSta = "UPDATE tasks_sta SET users_sta = $changedCode WHERE tasks_id = $taskId";
+                $staCode[$id] = 1;
+                $undoneNum = $row[1] - 1;
+                $updateSta = "UPDATE tasks_info SET tasks_sta = $staCode WHERE tasks_id = $taskId";
+                $updateUndone = "UPDATE tasks_info SET tasks_undone = $undoneNum WHERE tasks_id = $taskId";
+                $mysqli->query($updateUndone);
                 $mysqli->query($updateSta);
                 echo "您($name)签到成功";
             }

@@ -50,27 +50,14 @@ function insertInfo(){
     $("#a1").text(taskInfo[0].name);
     console.log(taskInfo[0].name);
     var name = getTaskSta();
-    //console.log(name[0].length);
-    var i = 0;
     if(name.length > 0){
         $("#p1").text(name);
-        /*name.forEach(function(value,index){
-            $("#p1").append('<span> '+value+' <span>');
-        });*/
+        
     }else{
         $("#p1").text("全部完成");
-        //$("#p1").append('<span> 全部完成 <span>');
     }
     
-    /*while(name[i]){
-        console.log("ok");
-        if(name.leg){
-            $("#p1").append('<span> 全部完成 <span>');
-            break;
-        }
-        
-        i++;
-    }*/
+  
     
 
 }

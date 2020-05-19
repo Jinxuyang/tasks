@@ -27,7 +27,7 @@ function showlist(){
     for (let index = 0; jsoninfo[index] != undefined; index++) {//遍历jsoninfo(有点像php里的关联数组?)这个对象的所有小伙子
         var percent = (jsoninfo[index].total-jsoninfo[index].undone)/jsoninfo[index].total;//计算完成人数的百分比
         //一会就是把这个对象插到div2里
-        var task = '<a href="http://121.36.19.47/tasks/detail.html?task_id='+ jsoninfo[index].id +' " class="list-group-item list-group-item-action" ><div ><h5 class="mb-1">' + jsoninfo[index].name + '</h5><small>创建时间:'+jsoninfo[index].stime+'</small></div><p class="mb-1">'+jsoninfo[index].des+'</p><div class="progress" style="height: 13px;"><div class="progress-bar" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ' + percent +'%;">'+ percent+'%</div></div></a>';
+        var task = '<a href="http://121.36.19.47/tasks/detail.html?task_id='+ jsoninfo[index].id +' " class="list-group-item list-group-item-action" ><div ><h5 class="mb-1">' + jsoninfo[index].name + '</h5><small>创建时间:'+jsoninfo[index].stime+'</small></div><p class="mb-1">'+jsoninfo[index].des+'</p><div class="progress" style="height: 13px;"><div class="progress-bar" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: ' + parseInt(percent*100+0.5) +'%;">'+ parseInt(percent*100+0.5)+'%</div></div></a>';
         $("#div2").append(task);
     }
 }

@@ -32,7 +32,7 @@ $(document).ready(function(){
                 status = "info";
                 outputinfo(info,status);
                 $.ajax({
-                    url:'http://localhost/tasks/submit.php',
+                    url:'http://121.36.19.47/tasks/submit.php',
                     type:'get',
                     data:{
                         name:$("#input1").val(),
