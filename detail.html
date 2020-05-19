@@ -8,62 +8,54 @@
 
         <script src="./js/jquery.js"></script>
         <script src="./js/detail.js"></script>
-        <!--<link rel="stylesheet" href="./css/bootstrap.min.css" >-->
-        <!--<link rel="stylesheet" href="./css/index.css">-->
         <script src="./js/submit.js"></script>
         <link rel="stylesheet" href="./css/index.css">
-        <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet">
+        <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
         
         
     </head>
     <body>
 
         <div id = "div1">
-            <div>
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                      <a class="nav-link" href="http://121.36.19.47/tasks/index.html">任务列表</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#" id="a1">加载中...</a>
-                    </li>
-                </ul>  
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                      <li><a href="http://121.36.19.47/tasks/index.html">任务列表</a></li>
+                      <li class="active"><a href="#" id="a1">加载中...</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="http://121.36.19.47/tasks/newTask.html">新建任务</a></li>
+                    </ul>
+                </div>
             </div>
 
             <div id = "div3" class="" role="alert" style="display: none;"></div>
 
-            <div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">姓名</span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id ="input1">
-                </div>
-                
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">学号</span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="ID" aria-label="Username" aria-describedby="basic-addon1" id="input2">
-                </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">姓名</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" id ="input1">
             </div>
-            
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">学号</span>
+                <input type="text" class="form-control" placeholder="ID" aria-describedby="basic-addon1" id="input2">
+            </div>
+
             <div>
                 <input type="checkbox" name="isfine" id="1">
                 <label for="1">我确认我已经完成<span id="span1"></span>信息上报</label>
             </div>
 
             <div>
-                <button type="button" class="btn btn-primary" id="btn1">完成</button>
+                <button type="button" class="btn btn-default" id="btn1">完成</button>
             </div>
 
-            
-
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">未完成名单</h5>
-                  <p class="card-text" id="p1" ></p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title">未完成名单</h3>
+                </div>
+                <div class="panel-body">
+                    <p id="p1" ></p>
                 </div>
             </div>
 
